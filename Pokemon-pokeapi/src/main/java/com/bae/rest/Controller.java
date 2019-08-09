@@ -21,13 +21,11 @@ public class Controller {
 	}
 	
 	
-	@GetMapping("/getPokeByNumber/{number}")
-	public ResponseEntity<Object> getPokemonByNumber(@PathVariable("number") String number){
-		return service.getPokemonByNumber(number);
+	@GetMapping("/getPokemon/{request}")
+	public ResponseEntity<Object> getPokemonByNumber(@PathVariable("request") String request){
+		return service.getPokemon(request);
 	}
 	
-	@GetMapping("/getPokeByName/{name}")
-	public ResponseEntity<Object> getPokemonByName(@PathVariable("name") String name){
-		return service.getPokemonByNumber(name);
-	}
+	
+	
 }
