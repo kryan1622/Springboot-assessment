@@ -7,6 +7,6 @@ import com.bae.entities.Users;
 public interface UserService {
 	
 	Users createUser(Users user);
-	ResponseEntity<Object> checkId(String request);
+	ResponseEntity<Object> checkId(Long userId, String request);
 
 }

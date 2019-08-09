@@ -26,9 +26,9 @@ public class Controller {
 		return service.createUser(user);
 	}
 	
-	@GetMapping("/getPokemon/{request}")
-	public ResponseEntity<Object> getPokemonByNumber(@PathVariable("request") String request){
-		return service.checkId(request);
+	@GetMapping("/getPokemon/{userId}/{request}")
+	public ResponseEntity<Object> getPokemonByNumber(@PathVariable("userId") Long userId, @PathVariable("request") String request){
+		return service.checkId(userId, request);
 	}
 
 }
