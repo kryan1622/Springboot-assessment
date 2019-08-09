@@ -5,20 +5,22 @@ import javax.jms.ConnectionFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.jms.DefaultJmsListenerContainerFactoryConfigurer;
+import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.jms.config.DefaultJmsListenerContainerFactory;
 import org.springframework.jms.config.JmsListenerContainerFactory;
 import org.springframework.jms.support.converter.MappingJackson2MessageConverter;
 import org.springframework.jms.support.converter.MessageConverter;
 import org.springframework.jms.support.converter.MessageType;
+import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class PokemonConsumerApplication {
+public class PokemonAuditorApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PokemonConsumerApplication.class, args);
+		SpringApplication.run(PokemonAuditorApplication.class, args);
 	}
-	
+
 	@Bean
 	public JmsListenerContainerFactory<?> myFactory(ConnectionFactory connectionFactory,
 													DefaultJmsListenerContainerFactoryConfigurer configurer) {
@@ -34,5 +36,9 @@ public class PokemonConsumerApplication {
 		converter.setTypeIdPropertyName("_type");
 		return converter;
 	}
-
+	
+	@Bean
+	public RestTemplate restTemplate(RestTemplateBuilder builder) {
+		return builder.build();
+	}
 }
