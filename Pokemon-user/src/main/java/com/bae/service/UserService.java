@@ -8,5 +8,6 @@ public interface UserService {
 	
 	Users createUser(Users user);
 	ResponseEntity<Object> checkId(Long userId, String request);
+	Users findById(Long userId);
 
 }
