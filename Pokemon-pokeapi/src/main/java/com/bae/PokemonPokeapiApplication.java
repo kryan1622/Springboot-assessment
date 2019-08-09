@@ -7,10 +7,10 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.web.client.RestTemplate;
 
 @SpringBootApplication
-public class PokemonUserApplication {
+public class PokemonPokeapiApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PokemonUserApplication.class, args);
+		SpringApplication.run(PokemonPokeapiApplication.class, args);
 	}
 
 	@Bean

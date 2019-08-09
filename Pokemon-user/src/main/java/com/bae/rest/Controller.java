@@ -1,6 +1,9 @@
 package com.bae.rest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,6 +24,11 @@ public class Controller {
 	@PostMapping("/createUser")
 	public Users createUser(@RequestBody Users user) {
 		return service.createUser(user);
+	}
+	
+	@GetMapping("/getPokemon/{userId}/{request}")
+	public ResponseEntity<Object> getPokemonByNumber(@PathVariable("userId") Long userId, @PathVariable("request") String request){
+		return service.checkId(userId, request);
 	}
 
 }
